@@ -30,6 +30,7 @@ toc
 
 %¿ªÊ¼ÑÝ»¯
 for key=1:100
+    tic
     pause(0.5);
     for i=1:lamda
         for j=1:lamda
@@ -48,4 +49,5 @@ for key=1:100
     end
     plotSixGrid(xy,L,lamda,lamda,CellDataTemp,gcf,HL,HW)
     CellData=CellDataTemp;
+    toc
 end

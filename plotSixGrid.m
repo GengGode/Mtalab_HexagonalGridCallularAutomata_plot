@@ -8,7 +8,7 @@ function plotSixGrid(A,L,m,n,RGB,gcf,HL,HW)
 % RGB 填充颜色 0 Black 1 White
 % HL 紧邻方式 0 行紧邻 1列紧邻
 % HW 奇偶行突出 0 奇数行突出 1 偶数行突出
-
+tic
 if HW>0
     HW=1;
 else
@@ -60,5 +60,6 @@ if length(A)==2
         end
     end
 end
+toc
 end
 
