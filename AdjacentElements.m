@@ -1,8 +1,9 @@
-function AdjacentElements = U_ij(i,j,HW,HL)
+function AdjacentElements = AdjacentElements(i,j,HW,HL)
 %U_IJ 根据紧邻排布方式确定六方网格中元素[i,j]的邻居
 %   i x坐标
 %   j y坐标
 % HL 紧邻方式 0 行紧邻 1列紧邻
+% HW 奇偶行突出 0 奇数行突出 1 偶数行突出
 
 WL=[num2str(HW) num2str(HL)];
 switch WL
@@ -32,4 +33,3 @@ switch WL
         end
 end
 end
-

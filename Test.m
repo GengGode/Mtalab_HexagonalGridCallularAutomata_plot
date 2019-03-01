@@ -11,9 +11,9 @@ L=0.3;
 HW=0;
 gcf=1;
 HL=0;
-m=1000;
-n=1000;
-RGB=[0.5 0 0]
+m=4;
+n=5;
+RGB=[0.5 0 0];
 if HW>0
     HW=1;
 else
@@ -32,34 +32,42 @@ hold on
 Ro3=sqrt(3);
 
 if length(A)==2
-    X_L=0:L:L*m;
-    Y_L=0:L:L*n;
+    X_L=0:L:L*(m-1);
+    Y_L=0:L:L*(n-1);
     X=A(1)+X_L;
     Y=A(2)+Y_L;
     %             X=X_L(i);
     %             Y=Y_L(j);
     t = linspace(0,2*pi,7);
+    tic
+    for i=1:m
+        for j=1:i
     switch HL
         case 0
-            x = mat2cell(L*sin(t)+Ro3.*(X(:)-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(m+HW),ones(1,m+1),7);
-            y = mat2cell(L*cos(t)+Y(:).*3/2,ones(1,n+1),7);
-        case 1
-            t=t+pi/6;
-            x = L*sin(t)+X*3/2;
-            y = L*cos(t)+Ro3*(Y-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(i+HW);
-        otherwise
-            x = L*sin(t)+Ro3*(X-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(j+HW);
-            y = L*cos(t)+Y*3/2;
+            x =L*sin(t)+Ro3.*(X(:)-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(m+HW);%7*m 1:m
+            y =L*cos(t)+Y(:).*3/2;%n*7
+            
     end
-    for i=1:m
-    plot(x{i},y{i})
+        end
     end
-    
+    toc
+    x
+    y;
+    y=y';%7*n
+    repmat(x,1,n)
+            x=repmat(x,1,n)'%(m*n)*7
+            Y=repmat(y,1,m);%7*(n*m)
+            X=reshape(x,7,m*n)%7*(m*n)
+    tic
+    line(X,Y)
+    toc
     try
         Color=RGB;
         for i=1:m
+            for j=1:m
         %RGB(i,j,:)=[(sin(i/10)+cos(j/8)+2)/4 0 (cos(j/8-4.6)+sin(i/10)+2)/4];
-        fill(x{i},y{i},Color)
+        %fill(x{i},y{j},RGB)
+            end
         end
     catch
         fill(x,y,[1,1,1])%出错显示为红色

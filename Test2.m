@@ -34,7 +34,7 @@ for key=1:100
    % pause(0.5);
     for i=1:lamda
         for j=1:lamda
-            NeiIJ=AdjacentElements(i,j,HW,HL);
+            NeiIJ=U_ij(i,j,HW,HL);
             CellState=[0 0 0 0 0 0];
             for k=1:6
                 p=NeiIJ{k}(1);
