@@ -2,9 +2,9 @@ clc;clear;
 Handle=figure('Position',[300 200 600 400],'NumberTitle','off','name','Six Grid');
 gcf=Handle.Number;
 L=1;%单元格边长
-HL=1;%紧邻方式
-HW=1;%突出方式
-xy=[0,0];%左下角坐标
+HL=0;%紧邻方式
+HW=0;%突出方式
+xy=[0,2];%左下角坐标
 
 lamda=20;%空间大小 
 rande=0.1;%随机出生率 0 - 1
@@ -19,6 +19,7 @@ CellData=rand(lamda,lamda);%随机出生
 CellData(CellData<rande)=1;%小于出生率的生存
 CellData(CellData<1)=0;%其他的死亡
 CellDataTemp=CellData;%缓存数组
+StateCell=zeros(lamda,lamda);%状态转化 0 状态不变 1 状态改变
 
 %显示并计时
 tic
