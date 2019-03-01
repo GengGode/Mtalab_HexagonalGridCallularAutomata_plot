@@ -27,12 +27,14 @@ hold on
 Ro3=sqrt(3);
 
 if length(A)==2
-    X_L=A(1):L:L*m;
-    Y_L=A(2):L:L*n;
+    X_L=0:L:L*m;
+    Y_L=0:L:L*n;
     for i=1:m
         for j=1:n
             X=A(1)+X_L(i);
             Y=A(2)+Y_L(j);
+%             X=X_L(i);
+%             Y=Y_L(j);
             t = linspace(0,2*pi,7);
             switch HL
                 case 0
@@ -51,8 +53,10 @@ if length(A)==2
             
             try
                 Color=RGB(i,j);
+                tic
                 %RGB(i,j,:)=[(sin(i/10)+cos(j/8)+2)/4 0 (cos(j/8-4.6)+sin(i/10)+2)/4];
-                fill(x,y,[Color Color Color,])
+                fill(x,y,[Color Color Color])
+                toc
             catch
                 fill(x,y,[1,1,1])%出错显示为红色
             end
