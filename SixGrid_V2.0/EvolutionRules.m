@@ -1,4 +1,4 @@
-function State = EvolutionRules(AdjacentElements,B,S)
+function State = EvolutionRules(AdjacentElementsState,B,S)
 %EVOLUTIONRULES 判断下一周期元素的状态
 %   State = EvolutionRules(B,S,AdjacentElements)
 %   Input：
@@ -19,9 +19,9 @@ elseif nargin<3
 end
 
 %规则
-K=sum(AdjacentElements);
+K=sum(AdjacentElementsState);
 
-if K>=B&&K<=S
+if K>=B && K<=S
     State=1;
 else
     State=0;

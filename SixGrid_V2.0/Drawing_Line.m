@@ -1,7 +1,28 @@
-function [outputArg1,outputArg2] = Drawing_Line(inputArg1,inputArg2)
-%DRAWING_LINE 此处显示有关此函数的摘要
-%   此处显示详细说明
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+function gcf = Drawing_Line(X,Y,gcf)
+%DRAWING_LINE 在窗口中绘制六边形网格框架
+%   gcf = Drawing_Line(X,Y,gcf)
+%   Input：
+%   X 
+%   Y
+%   gcf
+%   Output：
+%   gcf
+
+%   GengGode_2019.03.03
+%   SixGird_V2.0
+
+if nargin<3
+    gcf=figure();
+else
+    figure(gcf)
+end
+
+hold on
+
+line(X,Y,'Color','black')%,'MarkerEdgeColor','y'
+
+set(gcf,'Color','w')
+axis off
+hold off
 end
 

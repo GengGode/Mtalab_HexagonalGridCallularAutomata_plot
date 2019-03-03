@@ -10,7 +10,7 @@ function AdjacentElements = AdjacentElements(i,j,HL,HW)
 %   AdjacentElements = {[x1 y1],[x2 y2],[x3 y3],[x4 y4],[x5 y5],[x6 y6]}
 %   返回值为含有六个矩阵的元胞数组，每个矩阵描述一个与输入相邻的六边形的中心坐标
 
-%   GengGode_2019.03.02
+%   GengGode_2019.03.03
 %   SixGird_V2.0
 
 if nargin<2 %输入参数不足时使用默认参数，以免引起异常而使程序停止
