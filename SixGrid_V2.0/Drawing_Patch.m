@@ -17,6 +17,7 @@ else
     figure(gcf)
 end
 
+cla reset
 hold on
 
 Value=numel(CellState);
@@ -25,16 +26,22 @@ CellState=reshape(CellState,Value,1);
 CellData=reshape(CellData,Value,1);
 
 for i=1:Value
-    if  CellState(i)
+%     if  CellState(i)
+%         if CellData(i)
+%             patch(X(:,i),Y(:,i),[0 0 0])
+%         else
+%             patch(X(:,i),Y(:,i),[1 1 1])
+%         end
+%     end
+
+
         if CellData(i)
             patch(X(:,i),Y(:,i),[0 0 0])
-        else
-            patch(X(:,i),Y(:,i),[1 1 1])
         end
-    end
+
 end
-% set(gcf,'Color','w')
-% axis off
+set(gcf,'Color','w')
+axis off
 hold off
 
 end
