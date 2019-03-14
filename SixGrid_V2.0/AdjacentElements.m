@@ -32,25 +32,25 @@ WL = HL*10+HW;%将两个参数合并判断
 switch WL
     case 0
         if mod(j,2) == 0
-            AdjacentElements = H_U_odd(i,j);
+            AdjacentElements = L_U_odd(i,j);
         else
             AdjacentElements=H_U_even(i,j);
         end
     case 10
         if mod(i,2)==0
-            AdjacentElements=L_U_odd(i,j);
+            AdjacentElements=H_U_odd(i,j);
         else
             AdjacentElements=L_U_even(i,j);
         end
     case 1
         if mod(j,2)~=0
-            AdjacentElements=H_U_odd(i,j);
+            AdjacentElements=L_U_odd(i,j);
         else
             AdjacentElements=H_U_even(i,j);
         end
     case 11
         if mod(i,2)~=0
-            AdjacentElements=L_U_odd(i,j);
+            AdjacentElements=H_U_odd(i,j);
         else
             AdjacentElements=L_U_even(i,j);
         end
@@ -68,17 +68,24 @@ function AdjacentElements = H_U_even(i,j)
 %      -2-[i-1,j+1]-2-    -3-[i,j+1]-3-
 %   -1-[i-1,j]-1-    -[i,j]-   -4-[i+1,j]-4-
 %      -6-[i-1,j-1]-6-    -5-[i,j-1]-5-
+%
+%     [i-1,j]
+%     [i-1,j+1]
+%     [i,j+1]
+%     [i+1,j]
+%     [i,j-1]
+%     [i-1,j-1]
 
 %   GengGode_2019.03.02
 %   SixGird_V2.0
 
 AdjacentElements = {
     [i-1,j]
-    [i-1,j+1]
-    [i,j+1]
-    [i+1,j]
-    [i,j-1]
     [i-1,j-1]
+    [i,j-1]
+    [i+1,j]
+    [i,j+1]
+    [i-1,j+1]
     };
 
 end
@@ -94,17 +101,24 @@ function AdjacentElements = H_U_odd(i,j)
 %      -2-[i,j+1]-2-    -3-[i+1,j+1]-3-
 %   -1-[i-1,j]-1-    -[i,j]-   -4-[i+1,j]-4-
 %      -6-[i,j-1]-6-    -5-[i+1,j-1]-5-
+%
+%     [i-1,j]
+%     [i,j+1]
+%     [i+1,j+1]
+%     [i+1,j]
+%     [i+1,j-1]
+%     [i,j-1]
 
 %   GengGode_2019.03.02
 %   SixGird_V2.0
 
 AdjacentElements = {
     [i-1,j]
-    [i,j+1]
-    [i+1,j+1]
-    [i+1,j]
-    [i+1,j-1]
     [i,j-1]
+    [i+1,j-1]
+    [i+1,j]
+    [i+1,j+1]
+    [i,j+1]
     };
 
 end

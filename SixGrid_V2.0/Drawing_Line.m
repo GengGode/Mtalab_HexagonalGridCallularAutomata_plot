@@ -12,7 +12,8 @@ function gcf = Drawing_Line(X,Y,gcf)
 %   SixGird_V2.0
 
 if nargin<3
-    gcf=figure();
+    Hander=figure();
+    gcf=Hander.Number;
 else
     figure(gcf)
 end

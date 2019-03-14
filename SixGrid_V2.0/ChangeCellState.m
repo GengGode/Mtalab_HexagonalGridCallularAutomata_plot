@@ -5,9 +5,9 @@ function [CellData,CellState] = ChangeCellState(CellData,CellState)
 [Value_x,Value_y]=size(CellData);
 CellDataTemp=CellData;
 AdjacentElementsState=false(6,1);
-AdjacentElement={[0 0];[0 0];[0 0];[0 0];[0 0];[0 0]};
-x=0;
-y=0;
+% AdjacentElement={[0 0];[0 0];[0 0];[0 0];[0 0];[0 0]};
+% x=0;
+% y=0;
 for i=1:Value_x
     for j=1:Value_y
         AdjacentElement=AdjacentElements(i,j);%得到当前位置元素的邻居坐标
@@ -22,9 +22,11 @@ for i=1:Value_x
                 %
             end
         end
+        CellState(abs(CellData-CellDataTemp)>0)=1;
         CellData(i,j)=EvolutionRules(AdjacentElementsState);%判断下一时刻该元素状态
-        CellState(abs(CellData-CellDataTemp)>0)=1;%对比判断元素是否发生改变
     end
 end
+CellState(abs(CellData-CellDataTemp)>0)=1;%对比判断元素是否发生改变
+
 end
 
