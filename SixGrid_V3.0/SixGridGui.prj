@@ -1,0 +1,63 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="317475047" file="C:\Users\GengG\Documents\MATLAB\Mtalab_HexagonalGridCallularAutomata\SixGrid_V3.0\SixGridGui.prj" location="C:\Users\GengG\Documents\MATLAB\Mtalab_HexagonalGridCallularAutomata\SixGrid_V3.0" name="SixGridGui" target="target.mlapps" target-name="App 打包">
+    <param.appname>SixGridGui</param.appname>
+    <param.authnamewatermark>GengGode</param.authnamewatermark>
+    <param.email>GengGode@outlook.com</param.email>
+    <param.company />
+    <param.icon />
+    <param.icons />
+    <param.summary>图窗化六方元胞自动机</param.summary>
+    <param.description>图窗化六方元胞自动机，能够根据需求演化六方元胞自动机模型</param.description>
+    <param.screenshot>C:\Users\GengG\AppData\Local\Temp\tp75f55915_3785_4ce6_ad88_85ffd6dd83a8.png</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name>
+      <item>MATLAB</item>
+    </param.products.name>
+    <param.products.id>
+      <item>1</item>
+    </param.products.id>
+    <param.products.version>
+      <item>9.4</item>
+    </param.products.version>
+    <param.platforms />
+    <param.output>C:\Users\GengG\Documents\MATLAB\Mtalab_HexagonalGridCallularAutomata\SixGrid_V3.0</param.output>
+    <param.guid>0d54faa7-bc91-4ef3-994a-e2d9ab519789</param.guid>
+    <unset>
+      <param.company />
+      <param.icon />
+      <param.icons />
+      <param.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\MainGui.mlapp</file>
+    </fileset.main>
+    <fileset.depfun />
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\Users\GengG\Documents\MATLAB\Mtalab_HexagonalGridCallularAutomata" name="SixGrid_V3.0" optional="false">C:\Users\GengG\Documents\MATLAB\Mtalab_HexagonalGridCallularAutomata\SixGrid_V3.0</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>D:\MyTools\MATLAB\R2018a</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
