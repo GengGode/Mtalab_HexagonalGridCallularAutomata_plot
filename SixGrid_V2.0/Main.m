@@ -1,11 +1,11 @@
 % 启动脚本
 clc;
 clear;
-a=60;
-b=60;
-[CellData,CellState]=CreateCellState(a,b,0.05);
+a=50;
+b=50;
+[CellData,CellState]=CreateCellState(b,a,0.1);
 % CellData=[
-%     0 0 0 0 0 0
+%    0 0 0 0 0 0
 %     0 0 0 0 0 0
 %     0 0 1 0 0 0
 %     0 1 0 0 0 0
@@ -16,15 +16,19 @@ b=60;
 %右下角对应右上角
 %右上角对应右上角
 %左上角对应左下角
-%上下颠倒对应
+%上下颠倒对应 行列反转
 [X,Y]=CalculatedCoordinates_Cell(a,b);
-gcf=Drawing_Line(X,Y);
-Drawing_Patch(X,Y,CellData,CellState,gcf);
+figure(1)
+imshow(CellData)
+%gcf=Drawing_Line(X,Y);
+%Drawing_Patch(X,Y,CellData,CellState,gcf);
 for i=1:100
     tic
     [CellData,CellState] = ChangeCellState(CellData,CellState);
-    Drawing_Line(X,Y,gcf);
-    Drawing_Patch(X,Y,CellData,CellState,gcf);
-     Gif(gcf,i,'test4.gif');
+    hold on
+    imshow(CellData)
+    %Drawing_Line(X,Y,gcf);
+    %Drawing_Patch(X,Y,CellData,CellState,gcf);
+    %Gif(gcf,i,'test4.gif');
     toc
 end

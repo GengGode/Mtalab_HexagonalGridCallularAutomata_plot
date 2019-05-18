@@ -23,7 +23,7 @@ else
 end
 %排除错误输入
 
-%figure(gcf)
+figure(gcf)
 hold on
 
 Ro3=sqrt(3);
@@ -37,7 +37,7 @@ if length(A)==2
     X_L=0:L:L*(m-1);%创建所有的六边形中心的X
     Y_L=0:L:L*(n-1);%创建所有的六边形中心的Y
     
-    disp("XY:")
+    %disp("XY:")
     tic
     
     for i=1:m
@@ -71,7 +71,7 @@ if length(A)==2
     toc
     %patch('XData',X(:,:),'YData',Y(:,:),[1 1 1])
     %%
-    disp("Draw:")
+    %disp("Draw:")
     tic
     
     for i=1:m*n%按顺序历遍所有的六边形
