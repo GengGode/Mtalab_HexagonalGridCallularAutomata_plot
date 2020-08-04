@@ -24,6 +24,7 @@ end
 
 figure(gcf)
 hold on
+axis off
 Ro3=sqrt(3);
 
 if length(A)==2
@@ -60,5 +61,6 @@ if length(A)==2
         end
     end
 end
+
 end
 
