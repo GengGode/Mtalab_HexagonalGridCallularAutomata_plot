@@ -12,6 +12,7 @@ lamda=10;% 空间大小
 rande=0.1;% 随机出生率 0 - 1
 Generation=100;% 目标演化步数
 
+% 通过更改EvolutionRules()函数的内容可以自定义更新规则
 B=2;% 生存状态邻居数
 S=3;% 死亡状态邻居数
 
@@ -32,6 +33,7 @@ for key=1:100
     % 每秒两帧 1 / 0.5 = 2 fps
     pause(0.5);
     
+    tic
     % 遍历每个格子
     for i=1:lamda
         for j=1:lamda
@@ -61,5 +63,7 @@ for key=1:100
     end
     % 将状态数组更新为缓存数组的内容
     CellData=CellDataTemp;
+    toc
+    
 end
 disp("运行已结束");

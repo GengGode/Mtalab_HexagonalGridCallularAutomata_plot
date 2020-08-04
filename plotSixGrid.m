@@ -25,37 +25,46 @@ end
 figure(gcf)
 hold on
 axis off
-Ro3=sqrt(3);
-
+W=2; % 线框宽度
+Ro3=1.732050807568877;% sqrt(3);
+t=[0, 1.047197551196598, 2.094395102393195, ...
+    3.141592653589793, 4.188790204786391,...
+    5.235987755982989, 6.283185307179586]; % linespace(0,2*pi,7);
+% 原点坐标存在
 if length(A)==2
-    X_L=A(1):L:L*m;
-    Y_L=A(2):L:L*n;
+    % 网格平铺
+    X_L=A(1)+(0:L:L*m);
+    Y_L=A(2)+(0:L:L*n);
+    % 遍历
     for i=1:m
         for j=1:n
-            X=A(1)+X_L(i);
-            Y=A(2)+Y_L(j);
-            t = linspace(0,2*pi,7);
+            X=X_L(i);
+            Y=Y_L(j);
+            % 根据网格类型，将平铺坐标映射为六边形网格坐标
             switch HL
                 case 0
                     x = L*sin(t)+Ro3*(X-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(j+HW);
                     y = L*cos(t)+Y*3/2;
                 case 1
-                    t=t+pi/6;
+                    % 旋转30°
+                    t=t+1.047197551196598;
                     x = L*sin(t)+X*3/2;
                     y = L*cos(t)+Ro3*(Y-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(i+HW);
                 otherwise
                     x = L*sin(t)+Ro3*(X-1)+L*Ro3*3/4+L*Ro3*1/4*(-1)^(j+HW);
                     y = L*cos(t)+Y*3/2;
             end
-            
-            plot(x,y)
-            
+            % 绘制六边形线框
+            % 在大规模绘图中可能会增加计算开销
+            plot(x,y,'c','Linewidth',W);
+            % 填充颜色
             try
                 Color=RGB(i,j);
-                %RGB(i,j,:)=[(sin(i/10)+cos(j/8)+2)/4 0 (cos(j/8-4.6)+sin(i/10)+2)/4];
-                fill(x,y,[Color Color Color,])
+                % Color=[(sin(i/10)+cos(j/8)+2)/4 0 (cos(j/8-4.6)+sin(i/10)+2)/4]
+                % 填充函数开销异常巨大，尽量小规模测试
+                fill(x,y,[Color Color Color])
             catch
-                fill(x,y,[1,1,1])%出错显示为红色
+                fill(x,y,[1,0,0])% 异常将显示为红色
             end
             
         end
