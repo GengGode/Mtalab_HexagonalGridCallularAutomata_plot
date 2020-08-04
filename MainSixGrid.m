@@ -30,8 +30,13 @@ toc
 
 % 开始演化
 for key=1:100
-    % 每秒两帧 1 / 0.5 = 2 fps
-    pause(0.5);
+    % 每秒10帧 1 / 0.1 = 10 fps
+    pause(0.1);
+    
+    if (ishandle(gcf)==false)
+        disp("窗口已关闭，停止运行");
+        break;
+    end
     
     tic
     % 遍历每个格子
