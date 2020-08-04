@@ -1,3 +1,5 @@
+% 主程序入口
+
 clc;clear;
 Handle=figure('Position',[300 200 600 400],'NumberTitle','off','name','Six Grid');
 gcf=Handle.Number;
