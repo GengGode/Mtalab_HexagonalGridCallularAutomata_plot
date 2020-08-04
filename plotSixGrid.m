@@ -58,7 +58,7 @@ if length(A)==2
             end
             % 绘制六边形线框
             % 在大规模绘图中可能会增加计算开销
-            % plot(x,y,'c','Linewidth',W);
+            plot(x,y,'c','Linewidth',W);
             % 填充颜色
             try
                 Color=RGB(i,j);
